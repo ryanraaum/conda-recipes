@@ -1,0 +1,31 @@
+package:
+  name: finestructure
+  version: '4.0.0'
+
+source:
+  url: https://people.maths.bris.ac.uk/~madjl/finestructure/fs_4.0.0.zip
+  sha256: fa3715b2f6b14437524a5fe21fab0f8f8da1ef266233e9b66a560599cf7a7e26
+  patches:
+    - noSwitch.patch
+
+build:
+  number: 0
+  skip: true # [win]
+
+requirements:
+  run:
+    - perl
+
+about:
+  home: https://people.maths.bris.ac.uk/~madjl/finestructure/finestructure.html
+  license: Non-Commercial Use Only
+  summary: 'fineSTRUCTURE is a fast and powerful algorithm for identifying population structure using dense sequencing data.'
+
+test:
+  commands:
+    - fs --help >> /dev/null
+
+extra:
+  identifiers:
+    - biotools:fineSTRUCTURE
+    - doi:10.1371/journal.pgen.1002453
