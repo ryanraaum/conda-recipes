@@ -1,19 +1,29 @@
 package:
   name: finestructure
-  version: '4.0.0'
+  version: '2.1.3'
 
 source:
-  url: https://people.maths.bris.ac.uk/~madjl/finestructure/fs_4.0.0.zip
-  sha256: fa3715b2f6b14437524a5fe21fab0f8f8da1ef266233e9b66a560599cf7a7e26
-  patches:
-    - noSwitch.patch
+  url: https://people.maths.bris.ac.uk/~madjl/finestructure/fs-2.1.3.tar.gz
+  sha256: f771ee6795b2ce6a5032412b3f856598c3c37308f722ddfcb62174baaf7779f2
+#  patches:
+#    - noSwitch.patch
 
 build:
   number: 0
   skip: true # [win]
 
 requirements:
+  build:
+    - {{ compiler('cxx') }}
+    - zlib
+    - gsl
+  host:
+    - gsl
+    - zlib
+    - perl
   run:
+    - gsl
+    - zlib
     - perl
 
 about:
